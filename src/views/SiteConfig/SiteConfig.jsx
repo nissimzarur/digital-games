@@ -800,7 +800,9 @@ function SiteConfig({ user, games, systemPreferences, history }) {
         if (result.success) {
           setMsg("THE USER HAVE BEEN DELETED SUCCESSFULLY.");
           setShowSuccessModal(!showSuccessModal);
-          history.push("/homepage");
+          setTimeout(() => {
+            history.push("/homepage");
+          }, 1500);
         } else {
           setAlertErrMsg(result.errMsg);
           setShowAlertModal(!showAlertModal);
