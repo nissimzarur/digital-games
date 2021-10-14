@@ -1,15 +1,12 @@
 <?php
- header('Access-Control-Allow-Origin: *'); 
- header("Access-Control-Allow-Credentials: true");
- header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
- header('Access-Control-Max-Age: 1000');
- header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
- header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding");
+header('Access-Control-Allow-Origin: *'); 
+header("Access-Control-Allow-Credentials: true");
+header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
+header('Access-Control-Max-Age: 1000');
+header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
+header("Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding");
  
- file_put_contents('my_log.txt',print_r('asdasd',true)); exit;
- 
- include_once("db_connection.php");
- 
+include_once("db_connection.php");
 
 //Call to functions
 $function = $_GET['function']??'';
@@ -949,8 +946,7 @@ function get_all_users(){
 function delete_user(){
     global $pdo;
 
-	file_put_contents('my_log.txt',print_r($_POST,true));         echo json_encode(["success"=>true, 'data'=>"valid."]); exit;
-    $user_id = (isset($_POST['user_id']) AND $_POST['user_id']) ? (int)$_POST['user_id'] : 0;
+    $user_id = (isset($_POST['user_id']) AND $_REQUEST['user_id']) ? (int)$_POST['user_id'] : 0;
 	
     if(!$user_id){
         echo json_encode(["success"=>false, 'errMsg'=>"Sorry, user id is missing or not valid."]);
