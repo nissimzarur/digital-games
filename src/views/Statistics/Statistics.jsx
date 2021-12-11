@@ -86,12 +86,12 @@ export default connect(mapStateToProps)(Statistics);
 
 function Graph({ data }) {
   let [widthSize, setWidthSize] = useState(
-    window.innerWidth > 1000 ? 1000 : window.innerWidth - 200
+    window.innerWidth > 1200 ? 1100 : window.innerWidth - 250
   );
   const updateDimensions = () => {
-    if (window.innerWidth > 1000) {
-      setWidthSize(1000);
-    } else setWidthSize(window.innerWidth - 150);
+    if (window.innerWidth > 1200) {
+      setWidthSize(1100);
+    } else setWidthSize(window.innerWidth - 250);
   };
   window.addEventListener("resize", updateDimensions);
 
